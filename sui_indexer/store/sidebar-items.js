@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["indexer_store_v2","module_resolver_v2"],"struct":["PgIndexerAnalyticalStore","PgIndexerStoreV2"]};
