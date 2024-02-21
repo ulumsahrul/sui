@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sui Replay Tool</title>
+  <!-- 
+      When developing: uncomment this.
+      When building: comment this
+
+  -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .INSERT_STYLES_HERE{color:sui}
+  </style>
+</head>
+<body>
+  <script type="module">
+    import { createApp } from 'https://unpkg.com/petite-vue@0.2.2/dist/petite-vue.es.js';
+
+    // TODO: Replace this one with the actual JSON data from the replay.
+    const output = {"effects":{"messageVersion":"v1","status":{"status":"success"},"executedEpoch":"295","gasUsed":{"computationCost":"749000","storageCost":"51604000","storageRebate":"51087960","nonRefundableStorageFee":"516040"},"modifiedAtVersions":[{"objectId":"0x049639271505fd423a38da1f4f23650d76c66783265a0751effc8a2be9106476","sequenceNumber":"6991594"},{"objectId":"0x095b6dd57a52307f6f3148913e36a3b0d8646a05542a579241a0f8ee5cfaeba7","sequenceNumber":"6991594"},{"objectId":"0x0b47eb8c365c85e8e1e615a16abb060f9018d5d99fdacedb5652e36c83bad415","sequenceNumber":"6991594"},{"objectId":"0x133b40b0a0004e5fd68b0ec344011b8b0087dd6cbca0ff613f62f4b994c5ebd6","sequenceNumber":"6991594"},{"objectId":"0x1aedcca0b67b891c64ca113fce87f89835236b4c77294ba7e2db534ad49a58dc","sequenceNumber":"6991633"},{"objectId":"0x2f7c72c8c310a451bfcc159ae7266a02d1b81768b774912717aba144a8e11b2c","sequenceNumber":"6991594"},{"objectId":"0x341c84f537c4e2b6b75e4f7df0220f30d8b46f179fc8e77378baf7f4e70b3b29","sequenceNumber":"6991594"},{"objectId":"0x3640548edcee739e20c62a8b94076e037ea514faa29f82e010ae3be830e853d0","sequenceNumber":"6991594"},{"objectId":"0x4ca5e08b454824684bd68b8f57406007c7b867c7cf13b5b74d1678055d48995f","sequenceNumber":"6991594"},{"objectId":"0x53678108d130edcd29941d805fc7b6bffebb034f9b04df39d9e36bf67af138a6","sequenceNumber":"6991594"},{"objectId":"0x5849d6fe57dd0a02a625a7334a7221047b2236cbdb1a7941d8c263e35b841bf1","sequenceNumber":"6991633"},{"objectId":"0x5a68ed61923d37061f48707484fae17b860b3da5dad02b1527868c748486c315","sequenceNumber":"6991633"},{"objectId":"0x73ecf7b297801580a0cb001d984c5e72173e7b7c57fb31939bf5571e12a3bf0d","sequenceNumber":"6991594"},{"objectId":"0x7958622ced87b097d3b802aec53d021288f177b9a23d3132026ddef2dcc907bd","sequenceNumber":"6991594"},{"objectId":"0x7f63b07d832f032edef2e12536240d1fc8c1347cecc4e2ddda8c7909c4d8a9cd","sequenceNumber":"6991594"},{"objectId":"0x90ecc39b1f8a652b7df80896a9d4599df141f1200edaa8e0de348fdca107cc34","sequenceNumber":"6991594"},{"objectId":"0x979e10ceac23c9fb6902940040c58c892381f022abee73ee9b55f3c10323e3e0","sequenceNumber":"6991594"},{"objectId":"0x9b64c4cbdc88ff82405b556f8a07458aec41617140723c94243fc2618e166d3f","sequenceNumber":"6991594"},{"objectId":"0xa54a15fce58bdf60f63626ce883e5826f2775a6045aadc8505759c050546aa62","sequenceNumber":"6991594"},{"objectId":"0xa8e0b53029cfa9bcf67e705930060be0db1e9049cfab18735d1ab0a6a57918c6","sequenceNumber":"6991594"},{"objectId":"0xac61fe695f0254b5fb6bdb3264ff10a4617f1bbaef39289fdbb05f6f85fadace","sequenceNumber":"6991594"},{"objectId":"0xb485f19b3749c0f34b6f84b9065d97ddee534039725edb6a6d91aff80114ca0b","sequenceNumber":"6991594"},{"objectId":"0xc1a9ac851ca5e045070a8bcdb1293953a972233189e4af2483f92d9ec8f9146f","sequenceNumber":"6991594"},{"objectId":"0xc6620bfbafb5392d2e757f61fca590e23ce8fd5697e9dee6192a2727e41270b0","sequenceNumber":"6991594"},{"objectId":"0xc74fe02a9bd975e6ccf95021ef664ec7d43991ba9263a2bfbd88d9a1fafdee5a","sequenceNumber":"6991594"},{"objectId":"0xcf8c823603c4cd893a28811fb793f955ff4e3c42aece79ea28ef191c2a3bdd51","sequenceNumber":"6991594"},{"objectId":"0xde6adf93b8b4827a7709c8601762fa62025eae4c742f49e646494f6a1b8a50dd","sequenceNumber":"6991594"},{"objectId":"0xe546f95251fb339132b51c996a3fb8d6f28c243416a62b29a307bab8921be63e","sequenceNumber":"6991594"}],"sharedObjects":[{"objectId":"0x1aedcca0b67b891c64ca113fce87f89835236b4c77294ba7e2db534ad49a58dc","version":6991633,"digest":"61fbWoGNBFjms26B4bPtZyBXFxkiNHeA33NSt8RDLrxb"}],"transactionDigest":"JDCuWK2uBm8ijsRCe7kVGa7Kbb7wv28cwcnPX7xzRqZG","mutated":[{"owner":{"ObjectOwner":"0x1986d4b549f09815915b13e0152938c7135ba667046824a0f9385381b5c75166"},"reference":{"objectId":"0x049639271505fd423a38da1f4f23650d76c66783265a0751effc8a2be9106476","version":6991634,"digest":"Hq4cE46PkWFcFZiAz95ifrcMpaqTiHd7NrZmVrmXogqz"}},{"owner":{"ObjectOwner":"0x02b6cd77fb73affda32ef0f4898867a5f240b85eda05aabbc59d7395407e9699"},"reference":{"objectId":"0x095b6dd57a52307f6f3148913e36a3b0d8646a05542a579241a0f8ee5cfaeba7","version":6991634,"digest":"GrEn7PCMJeyAv6jeYfjeMnVm8QqJNG1RzcVVvzppN4Mr"}},{"owner":{"ObjectOwner":"0x7845c938ed15c9dec45baa7c14943b51b8de6207c94f619ddfce824d87773f19"},"reference":{"objectId":"0x0b47eb8c365c85e8e1e615a16abb060f9018d5d99fdacedb5652e36c83bad415","version":6991634,"digest":"9BwWvaSqW93bt5oEwoNbFJyhBK2eRFRizad1DxFxoqrp"}},{"owner":{"ObjectOwner":"0x686ee23de6fc1e113d844a20bd8cfb8c189915b3460ae5e89e79a2653d6c6b21"},"reference":{"objectId":"0x133b40b0a0004e5fd68b0ec344011b8b0087dd6cbca0ff613f62f4b994c5ebd6","version":6991634,"digest":"CF3aM5oCG6trr8nqp5Yjoo6wxC8DnTUH29kVjoEpmrNo"}},{"owner":{"Shared":{"initial_shared_version":5963053}},"reference":{"objectId":"0x1aedcca0b67b891c64ca113fce87f89835236b4c77294ba7e2db534ad49a58dc","version":6991634,"digest":"JFCEJtA9pJBszxVtng8Sc2pd99u6kYoB4h24HbEXHgc"}},{"owner":{"ObjectOwner":"0xdb06b2fb2c6decb2aed13bb24dae1fd95c14b2f359083ff1af2791996ca3b55b"},"reference":{"objectId":"0x2f7c72c8c310a451bfcc159ae7266a02d1b81768b774912717aba144a8e11b2c","version":6991634,"digest":"4ANqM93aKp5UtqKHEofkv5nNJQTNeAkru9FP1cTrA3Rh"}},{"owner":{"ObjectOwner":"0x05c0d25f07d231a69fb66f7416eb83d96d65c09498e06c04fbf595547028937a"},"reference":{"objectId":"0x341c84f537c4e2b6b75e4f7df0220f30d8b46f179fc8e77378baf7f4e70b3b29","version":6991634,"digest":"2QNWepmeh28gcAkiLsM8ginatmZHg4Pu7vcFkbA7TMft"}},{"owner":{"ObjectOwner":"0x8398248b78c6be4602341dea1a68137a32ad93cf03896b49c9a80281650061ac"},"reference":{"objectId":"0x3640548edcee739e20c62a8b94076e037ea514faa29f82e010ae3be830e853d0","version":6991634,"digest":"Bvu6ApHVJoH38kEY45RyY9C69EKEK1MZ57Zcqaucr45B"}},{"owner":{"ObjectOwner":"0x1924670ee673aab0f63f55afd5303b4cfed587481d72938936ab65a44fe42c45"},"reference":{"objectId":"0x4ca5e08b454824684bd68b8f57406007c7b867c7cf13b5b74d1678055d48995f","version":6991634,"digest":"8dLhN565XVpMFGitYF57UzGiXZFe9NtoXsP9fBxaDVuh"}},{"owner":{"ObjectOwner":"0xbc25a77be719965899c2a2533143d87acd1a3cbe4fe11bfa0a8271890916cfbf"},"reference":{"objectId":"0x53678108d130edcd29941d805fc7b6bffebb034f9b04df39d9e36bf67af138a6","version":6991634,"digest":"EsiXo9h9KirWkQ8DdrKMFxgqfxre5Q1P6UnfJ5Z9mtB"}},{"owner":{"AddressOwner":"0xb8e10442bfcf68da6ff205851c5cb4ee31e2eddb41ffcbbc82c03c976b1cc8a8"},"reference":{"objectId":"0x5849d6fe57dd0a02a625a7334a7221047b2236cbdb1a7941d8c263e35b841bf1","version":6991634,"digest":"5FjY9daNhWyaRzCxK6xz4bh6dZYmeDz3fSopAEz6kiVC"}},{"owner":{"AddressOwner":"0xb8e10442bfcf68da6ff205851c5cb4ee31e2eddb41ffcbbc82c03c976b1cc8a8"},"reference":{"objectId":"0x5a68ed61923d37061f48707484fae17b860b3da5dad02b1527868c748486c315","version":6991634,"digest":"CVghtWGef8wL49aCTizyRQtMRVr8xT9yGYeKtrPhsP7K"}},{"owner":{"ObjectOwner":"0xc326b36763c6bb67f930b47754bae58485e07a7859b03403c3fc8b61c0167b9a"},"reference":{"objectId":"0x73ecf7b297801580a0cb001d984c5e72173e7b7c57fb31939bf5571e12a3bf0d","version":6991634,"digest":"EnQRZrggwpAPd1z72ex6LdirxHjDDeBz1o6Xindu6W7g"}},{"owner":{"ObjectOwner":"0xa4dbe06630d9d7b9e54514fd4c00fade9eef35e0f327a71753adb5328cf1cc04"},"reference":{"objectId":"0x7958622ced87b097d3b802aec53d021288f177b9a23d3132026ddef2dcc907bd","version":6991634,"digest":"Bff5ysbR3Qe5GM86bVqyUuGxN6K4e75XNLTPKyqxGxNW"}},{"owner":{"ObjectOwner":"0x13ced254a83d41181966ab48e4a717da6165c9657f9686c44088ed68e0af8582"},"reference":{"objectId":"0x7f63b07d832f032edef2e12536240d1fc8c1347cecc4e2ddda8c7909c4d8a9cd","version":6991634,"digest":"GpStCeSHsbzYxmJ6SwUzLcigDbfTzmG6tj4DLfrvoN1W"}},{"owner":{"ObjectOwner":"0xf442ec13ead0f049b919491e53ff8e82b66758ef0b5bc088eda48c165666c9a3"},"reference":{"objectId":"0x90ecc39b1f8a652b7df80896a9d4599df141f1200edaa8e0de348fdca107cc34","version":6991634,"digest":"8qdWuHTH2JVRq9ASgFLhjMgvNN9cJ5wkFc8LEfLJyvmW"}},{"owner":{"ObjectOwner":"0x9d724c5ceccc3f7e27d509fddb4dfa013c931ede1a2e9d80031600bf90ace385"},"reference":{"objectId":"0x979e10ceac23c9fb6902940040c58c892381f022abee73ee9b55f3c10323e3e0","version":6991634,"digest":"AX88BzN8kTTpVx7D6DEsmtF59R7LNves2P6sxJrxxHPP"}},{"owner":{"ObjectOwner":"0x4ba34c140271fcbf56104db7d4e6fe5880851e1d27ba504dd8c2271a78894c90"},"reference":{"objectId":"0x9b64c4cbdc88ff82405b556f8a07458aec41617140723c94243fc2618e166d3f","version":6991634,"digest":"J5NU6cDYjWtY3kmoyBvuayszFJ5de8952hTLGDgXF3Wt"}},{"owner":{"ObjectOwner":"0x56a854aab79002acb4dc886d0b6f365163348728c159795c651f8f4d86e885aa"},"reference":{"objectId":"0xa54a15fce58bdf60f63626ce883e5826f2775a6045aadc8505759c050546aa62","version":6991634,"digest":"6qFnogLij3XUqBuYhtJbJpbL7bCfAH9e829dWwuVpeX5"}},{"owner":{"ObjectOwner":"0x75a0ed889f8f27cdf96f6707f5cea78243c54eeddb7b13f18a5c84d214b92a73"},"reference":{"objectId":"0xa8e0b53029cfa9bcf67e705930060be0db1e9049cfab18735d1ab0a6a57918c6","version":6991634,"digest":"5LeLJJzcCb6sj5aDPRHY19dbPUUMub3ZFKKrJLib2zob"}},{"owner":{"ObjectOwner":"0xd9818d9d03d282ac5a0ebc27425fbcfdaef56a12625e887b570aa7af49f9fff3"},"reference":{"objectId":"0xac61fe695f0254b5fb6bdb3264ff10a4617f1bbaef39289fdbb05f6f85fadace","version":6991634,"digest":"CY2Kph9qhtVL8XHqZSjBLBvKmVv4zAvjBGt3URCkyUJn"}},{"owner":{"ObjectOwner":"0xed35bc5423e7c5759d81907a30ebb146c11a23bf139d843cec8cbffe4aa69c38"},"reference":{"objectId":"0xb485f19b3749c0f34b6f84b9065d97ddee534039725edb6a6d91aff80114ca0b","version":6991634,"digest":"AGiF5kvrpmB95RnjBxQDsU1Scwd5hEW54JH6EJayR1AN"}},{"owner":{"ObjectOwner":"0x04facd533879ef0b8cb846e74730f423a1731265886d3a1be89d222c994fd547"},"reference":{"objectId":"0xc1a9ac851ca5e045070a8bcdb1293953a972233189e4af2483f92d9ec8f9146f","version":6991634,"digest":"GsJRF5hgff1NyFPuUubTV8RuN1LGQSJmP315V5tNo2SB"}},{"owner":{"ObjectOwner":"0x0dffa9ca95ea0250d3d6c1df8984e9eb8d43addeee49f192b0ff2dfbbc0c91d4"},"reference":{"objectId":"0xc6620bfbafb5392d2e757f61fca590e23ce8fd5697e9dee6192a2727e41270b0","version":6991634,"digest":"2jtg53ULxSyHU8XZ3XX5HqtmKnkvHyvdSdgecU4naSuR"}},{"owner":{"ObjectOwner":"0xdcee5e7f1d817a2e9274da7b338bb88f720cb62178b4f677ffd616afb76dc93d"},"reference":{"objectId":"0xc74fe02a9bd975e6ccf95021ef664ec7d43991ba9263a2bfbd88d9a1fafdee5a","version":6991634,"digest":"GvGWq9knChbET3mdZfgoar5uuCMcRVM22xxciSEKk1TN"}},{"owner":{"ObjectOwner":"0x3223f15883fd525bf487c2b7154accde00a34b736cd5a8598eeabb8ee089f7e8"},"reference":{"objectId":"0xcf8c823603c4cd893a28811fb793f955ff4e3c42aece79ea28ef191c2a3bdd51","version":6991634,"digest":"AThhF6r7v777GXJopJFuquyZQfNSri6QRRKHQqe4uFKN"}},{"owner":{"ObjectOwner":"0x8a435064829e672f9451107bdb4a1ed9e9ca6301b438194d79dff21cc326553f"},"reference":{"objectId":"0xde6adf93b8b4827a7709c8601762fa62025eae4c742f49e646494f6a1b8a50dd","version":6991634,"digest":"68naRzjPRCuFtRpC65fFhatgaXjXq9GZfy5qVHTY4yk6"}},{"owner":{"ObjectOwner":"0x7e5e66c5e4e60cb2aa6aa339d58b4a668a87cf8456670a3fc248a13472e4477a"},"reference":{"objectId":"0xe546f95251fb339132b51c996a3fb8d6f28c243416a62b29a307bab8921be63e","version":6991634,"digest":"6ob8ETCACEhEfaLdRuUjVt51GWgjQVWVZng24xpZxWq7"}}],"gasObject":{"owner":{"AddressOwner":"0xb8e10442bfcf68da6ff205851c5cb4ee31e2eddb41ffcbbc82c03c976b1cc8a8"},"reference":{"objectId":"0x5a68ed61923d37061f48707484fae17b860b3da5dad02b1527868c748486c315","version":6991634,"digest":"CVghtWGef8wL49aCTizyRQtMRVr8xT9yGYeKtrPhsP7K"}},"dependencies":["B1uJF7CGvVPrUQ3b9ZC99A7H2gEuGwgrpPKwyViz7d7N","GGmgETEMPW5FUGSBhCEwmxiRhbaHVfSeYNU7qCdtXTJt"]},"gas_status":{"V2":{"gas_status":{"gas_model_version":8,"cost_table":{"instruction_tiers":{"0":1,"20000":2,"50000":10,"100000":50,"200000":100,"10000000":1000},"stack_height_tiers":{"0":1,"1000":2,"10000":10},"stack_size_tiers":{"0":1,"100000":2,"500000":5,"1000000":100,"100000000":1000}},"gas_left":{"val":3894521,"phantom":null},"gas_price":749,"initial_budget":{"val":3994000,"phantom":null},"charge":true,"stack_height_high_water_mark":108,"stack_height_current":106,"stack_height_next_tier_start":1000,"stack_height_current_tier_mult":1,"stack_size_high_water_mark":20794,"stack_size_current":20794,"stack_size_next_tier_start":100000,"stack_size_current_tier_mult":1,"instructions_executed":2250,"instructions_next_tier_start":20000,"instructions_current_tier_mult":1,"profiler":null},"cost_table":{"min_transaction_cost":749000,"max_gas_budget":50000000000,"package_publish_per_byte_cost":80,"object_read_per_byte_cost":15,"storage_per_byte_cost":100,"execution_cost_table":{"instruction_tiers":{"0":1,"20000":2,"50000":10,"100000":50,"200000":100,"10000000":1000},"stack_height_tiers":{"0":1,"1000":2,"10000":10},"stack_size_tiers":{"0":1,"100000":2,"500000":5,"1000000":100,"100000000":1000}},"computation_bucket":[{"min":0,"max":1000,"cost":1000},{"min":1000,"max":5000,"cost":5000},{"min":5000,"max":10000,"cost":10000},{"min":10000,"max":20000,"cost":20000},{"min":20000,"max":50000,"cost":50000},{"min":50000,"max":200000,"cost":200000},{"min":200000,"max":1000000,"cost":1000000},{"min":1000000,"max":5000000,"cost":5000000}]},"gas_budget":2992160,"computation_cost":749000,"charge":true,"gas_price":749,"reference_gas_price":749,"storage_gas_price":76,"per_object_storage":[["0x049639271505fd423a38da1f4f23650d76c66783265a0751effc8a2be9106476",{"storage_cost":1770800,"storage_rebate":1770800,"new_size":233}],["0x095b6dd57a52307f6f3148913e36a3b0d8646a05542a579241a0f8ee5cfaeba7",{"storage_cost":1748000,"storage_rebate":1748000,"new_size":230}],["0x0b47eb8c365c85e8e1e615a16abb060f9018d5d99fdacedb5652e36c83bad415",{"storage_cost":1778400,"storage_rebate":1778400,"new_size":234}],["0x133b40b0a0004e5fd68b0ec344011b8b0087dd6cbca0ff613f62f4b994c5ebd6",{"storage_cost":1755600,"storage_rebate":1755600,"new_size":231}],["0x1aedcca0b67b891c64ca113fce87f89835236b4c77294ba7e2db534ad49a58dc",{"storage_cost":4750000,"storage_rebate":4750000,"new_size":625}],["0x2f7c72c8c310a451bfcc159ae7266a02d1b81768b774912717aba144a8e11b2c",{"storage_cost":1770800,"storage_rebate":1770800,"new_size":233}],["0x341c84f537c4e2b6b75e4f7df0220f30d8b46f179fc8e77378baf7f4e70b3b29",{"storage_cost":1763200,"storage_rebate":1763200,"new_size":232}],["0x3640548edcee739e20c62a8b94076e037ea514faa29f82e010ae3be830e853d0",{"storage_cost":1770800,"storage_rebate":1770800,"new_size":233}],["0x4ca5e08b454824684bd68b8f57406007c7b867c7cf13b5b74d1678055d48995f",{"storage_cost":1748000,"storage_rebate":1748000,"new_size":230}],["0x53678108d130edcd29941d805fc7b6bffebb034f9b04df39d9e36bf67af138a6",{"storage_cost":1846800,"storage_rebate":1846800,"new_size":243}],["0x5849d6fe57dd0a02a625a7334a7221047b2236cbdb1a7941d8c263e35b841bf1",{"storage_cost":1307200,"storage_rebate":1307200,"new_size":172}],["0x5a68ed61923d37061f48707484fae17b860b3da5dad02b1527868c748486c315",{"storage_cost":988000,"storage_rebate":988000,"new_size":130}],["0x73ecf7b297801580a0cb001d984c5e72173e7b7c57fb31939bf5571e12a3bf0d",{"storage_cost":1793600,"storage_rebate":1793600,"new_size":236}],["0x7958622ced87b097d3b802aec53d021288f177b9a23d3132026ddef2dcc907bd",{"storage_cost":1831600,"storage_rebate":1831600,"new_size":241}],["0x7f63b07d832f032edef2e12536240d1fc8c1347cecc4e2ddda8c7909c4d8a9cd",{"storage_cost":1831600,"storage_rebate":1831600,"new_size":241}],["0x90ecc39b1f8a652b7df80896a9d4599df141f1200edaa8e0de348fdca107cc34",{"storage_cost":1763200,"storage_rebate":1763200,"new_size":232}],["0x979e10ceac23c9fb6902940040c58c892381f022abee73ee9b55f3c10323e3e0",{"storage_cost":1755600,"storage_rebate":1755600,"new_size":231}],["0x9b64c4cbdc88ff82405b556f8a07458aec41617140723c94243fc2618e166d3f",{"storage_cost":1862000,"storage_rebate":1862000,"new_size":245}],["0xa54a15fce58bdf60f63626ce883e5826f2775a6045aadc8505759c050546aa62",{"storage_cost":1846800,"storage_rebate":1846800,"new_size":243}],["0xa8e0b53029cfa9bcf67e705930060be0db1e9049cfab18735d1ab0a6a57918c6",{"storage_cost":1748000,"storage_rebate":1748000,"new_size":230}],["0xac61fe695f0254b5fb6bdb3264ff10a4617f1bbaef39289fdbb05f6f85fadace",{"storage_cost":1748000,"storage_rebate":1748000,"new_size":230}],["0xb485f19b3749c0f34b6f84b9065d97ddee534039725edb6a6d91aff80114ca0b",{"storage_cost":1740400,"storage_rebate":1740400,"new_size":229}],["0xc1a9ac851ca5e045070a8bcdb1293953a972233189e4af2483f92d9ec8f9146f",{"storage_cost":1748000,"storage_rebate":1748000,"new_size":230}],["0xc6620bfbafb5392d2e757f61fca590e23ce8fd5697e9dee6192a2727e41270b0",{"storage_cost":1778400,"storage_rebate":1778400,"new_size":234}],["0xc74fe02a9bd975e6ccf95021ef664ec7d43991ba9263a2bfbd88d9a1fafdee5a",{"storage_cost":1755600,"storage_rebate":1755600,"new_size":231}],["0xcf8c823603c4cd893a28811fb793f955ff4e3c42aece79ea28ef191c2a3bdd51",{"storage_cost":1763200,"storage_rebate":1763200,"new_size":232}],["0xde6adf93b8b4827a7709c8601762fa62025eae4c742f49e646494f6a1b8a50dd",{"storage_cost":1839200,"storage_rebate":1839200,"new_size":242}],["0xe546f95251fb339132b51c996a3fb8d6f28c243416a62b29a307bab8921be63e",{"storage_cost":1801200,"storage_rebate":1801200,"new_size":237}]],"rebate_rate":9900,"unmetered_storage_rebate":0,"gas_rounding_step":1000}},"transaction_info":{"ProgrammableTransaction":{"inputs":[{"Object":{"ImmOrOwnedObject":["0x5849d6fe57dd0a02a625a7334a7221047b2236cbdb1a7941d8c263e35b841bf1",6991633,"4uCKp82FT6XW5QE59ogKAVbXCAPFvMccqVA59NYmUwug"]}},{"Object":{"SharedObject":{"id":"0x1aedcca0b67b891c64ca113fce87f89835236b4c77294ba7e2db534ad49a58dc","initial_shared_version":5963053,"mutable":true}}},{"Pure":[234,70,36,0]},{"Pure":[36,3]},{"Pure":[83,113,0,0]},{"Pure":[250,3,0,0]},{"Pure":[27]},{"Pure":[16,39]},{"Pure":[88,2]},{"Pure":[74,0]},{"Pure":[1,79,3]},{"Pure":[100]},{"Pure":[202,182,188,101]},{"Pure":[1,25,39,0]},{"Pure":[33,3]},{"Pure":[17,113,0,0]},{"Pure":[0,4,0,0]},{"Pure":[59]},{"Pure":[16,39]},{"Pure":[206,0]},{"Pure":[84,1]},{"Pure":[0]},{"Pure":[20]},{"Pure":[202,182,188,101]},{"Pure":[10,65,14,0]},{"Pure":[33,3]},{"Pure":[104,118,0,0]},{"Pure":[244,3,0,0]},{"Pure":[68]},{"Pure":[16,39]},{"Pure":[180,2]},{"Pure":[129,0]},{"Pure":[1,5,3]},{"Pure":[18]},{"Pure":[136,182,188,101]},{"Pure":[223,40,14,0]},{"Pure":[35,3]},{"Pure":[130,116,0,0]},{"Pure":[253,3,0,0]},{"Pure":[69]},{"Pure":[16,39]},{"Pure":[1,1]},{"Pure":[90,0]},{"Pure":[0]},{"Pure":[75]},{"Pure":[153,182,188,101]},{"Pure":[39,161,53,0]},{"Pure":[32,3]},{"Pure":[227,109,0,0]},{"Pure":[1,4,0,0]},{"Pure":[71]},{"Pure":[16,39]},{"Pure":[103,0]},{"Pure":[100,0]},{"Pure":[0]},{"Pure":[0]},{"Pure":[203,182,188,101]},{"Pure":[50,161,53,0]},{"Pure":[32,3]},{"Pure":[41,110,0,0]},{"Pure":[1,4,0,0]},{"Pure":[71]},{"Pure":[16,39]},{"Pure":[103,0]},{"Pure":[100,0]},{"Pure":[0]},{"Pure":[0]},{"Pure":[203,182,188,101]},{"Pure":[57,186,53,0]},{"Pure":[32,3]},{"Pure":[219,111,0,0]},{"Pure":[248,3,0,0]},{"Pure":[66]},{"Pure":[16,39]},{"Pure":[71,0]},{"Pure":[24,0]},{"Pure":[1,95,0]},{"Pure":[8]},{"Pure":[1,181,188,101]},{"Pure":[230,192,53,0]},{"Pure":[32,3]},{"Pure":[6,110,0,0]},{"Pure":[1,4,0,0]},{"Pure":[71]},{"Pure":[16,39]},{"Pure":[103,0]},{"Pure":[100,0]},{"Pure":[0]},{"Pure":[0]},{"Pure":[203,182,188,101]},{"Pure":[21,195,53,0]},{"Pure":[34,3]},{"Pure":[80,114,0,0]},{"Pure":[247,3,0,0]},{"Pure":[86]},{"Pure":[184,37]},{"Pure":[134,0]},{"Pure":[61,0]},{"Pure":[1,12,1]},{"Pure":[40]},{"Pure":[203,182,188,101]},{"Pure":[27,208,53,0]},{"Pure":[32,3]},{"Pure":[52,110,0,0]},{"Pure":[1,4,0,0]},{"Pure":[71]},{"Pure":[16,39]},{"Pure":[103,0]},{"Pure":[100,0]},{"Pure":[0]},{"Pure":[0]},{"Pure":[48,182,188,101]},{"Pure":[140,219,53,0]},{"Pure":[32,3]},{"Pure":[252,109,0,0]},{"Pure":[1,4,0,0]},{"Pure":[71]},{"Pure":[16,39]},{"Pure":[103,0]},{"Pure":[100,0]},{"Pure":[0]},{"Pure":[0]},{"Pure":[203,182,188,101]},{"Pure":[93,223,53,0]},{"Pure":[32,3]},{"Pure":[54,110,0,0]},{"Pure":[1,4,0,0]},{"Pure":[71]},{"Pure":[16,39]},{"Pure":[103,0]},{"Pure":[100,0]},{"Pure":[0]},{"Pure":[0]},{"Pure":[49,182,188,101]},{"Pure":[101,223,53,0]},{"Pure":[32,3]},{"Pure":[51,110,0,0]},{"Pure":[1,4,0,0]},{"Pure":[71]},{"Pure":[16,39]},{"Pure":[103,0]},{"Pure":[100,0]},{"Pure":[0]},{"Pure":[0]},{"Pure":[48,182,188,101]},{"Pure":[250,185,60,0]},{"Pure":[32,3]},{"Pure":[23,112,0,0]},{"Pure":[248,3,0,0]},{"Pure":[70]},{"Pure":[16,39]},{"Pure":[106,0]},{"Pure":[252,0]},{"Pure":[1,111,0]},{"Pure":[3]},{"Pure":[203,182,188,101]},{"Pure":[198,191,60,0]},{"Pure":[32,3]},{"Pure":[21,114,0,0]},{"Pure":[239,3,0,0]},{"Pure":[40]},{"Pure":[16,39]},{"Pure":[220,0]},{"Pure":[204,0]},{"Pure":[1,213,0]},{"Pure":[0]},{"Pure":[203,182,188,101]},{"Pure":[41,193,60,0]},{"Pure":[35,3]},{"Pure":[48,111,0,0]},{"Pure":[244,3,0,0]},{"Pure":[88]},{"Pure":[111,31]},{"Pure":[104,1]},{"Pure":[240,0]},{"Pure":[0]},{"Pure":[75]},{"Pure":[92,182,188,101]},{"Pure":[198,208,60,0]},{"Pure":[33,3]},{"Pure":[232,110,0,0]},{"Pure":[253,3,0,0]},{"Pure":[54]},{"Pure":[16,39]},{"Pure":[0,0]},{"Pure":[0,0]},{"Pure":[0]},{"Pure":[20]},{"Pure":[45,182,188,101]},{"Pure":[118,218,60,0]},{"Pure":[33,3]},{"Pure":[26,113,0,0]},{"Pure":[241,3,0,0]},{"Pure":[42]},{"Pure":[16,39]},{"Pure":[224,0]},{"Pure":[155,0]},{"Pure":[1,224,0]},{"Pure":[11]},{"Pure":[44,182,188,101]},{"Pure":[124,230,60,0]},{"Pure":[35,3]},{"Pure":[54,111,0,0]},{"Pure":[247,3,0,0]},{"Pure":[65]},{"Pure":[16,39]},{"Pure":[135,0]},{"Pure":[221,0]},{"Pure":[1,173,0]},{"Pure":[53]},{"Pure":[203,182,188,101]},{"Pure":[10,247,60,0]},{"Pure":[33,3]},{"Pure":[163,109,0,0]},{"Pure":[249,3,0,0]},{"Pure":[83]},{"Pure":[16,39]},{"Pure":[134,0]},{"Pure":[226,0]},{"Pure":[1,154,0]},{"Pure":[22]},{"Pure":[203,182,188,101]},{"Pure":[73,247,60,0]},{"Pure":[32,3]},{"Pure":[235,112,0,0]},{"Pure":[243,3,0,0]},{"Pure":[86]},{"Pure":[16,39]},{"Pure":[102,0]},{"Pure":[34,1]},{"Pure":[1,162,0]},{"Pure":[4]},{"Pure":[203,182,188,101]},{"Pure":[165,249,60,0]},{"Pure":[33,3]},{"Pure":[139,111,0,0]},{"Pure":[237,3,0,0]},{"Pure":[72]},{"Pure":[16,39]},{"Pure":[2,2]},{"Pure":[24,1]},{"Pure":[0]},{"Pure":[20]},{"Pure":[203,182,188,101]},{"Pure":[191,3,61,0]},{"Pure":[32,3]},{"Pure":[175,111,0,0]},{"Pure":[248,3,0,0]},{"Pure":[71]},{"Pure":[16,39]},{"Pure":[63,0]},{"Pure":[165,0]},{"Pure":[1,108,0]},{"Pure":[4]},{"Pure":[203,182,188,101]},{"Pure":[34,28,61,0]},{"Pure":[36,3]},{"Pure":[73,113,0,0]},{"Pure":[244,3,0,0]},{"Pure":[72]},{"Pure":[16,39]},{"Pure":[53,1]},{"Pure":[190,0]},{"Pure":[0]},{"Pure":[100]},{"Pure":[46,182,188,101]},{"Pure":[163,30,61,0]},{"Pure":[34,3]},{"Pure":[254,111,0,0]},{"Pure":[254,3,0,0]},{"Pure":[77]},{"Pure":[16,39]},{"Pure":[0,0]},{"Pure":[0,0]},{"Pure":[0]},{"Pure":[40]},{"Pure":[169,181,188,101]}],"commands":[{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":2},{"Input":3},{"Input":4},{"Input":5},{"Input":6},{"Input":7},{"Input":8},{"Input":9},{"Input":10},{"Input":11},{"Input":12}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":13},{"Input":14},{"Input":15},{"Input":16},{"Input":17},{"Input":18},{"Input":19},{"Input":20},{"Input":21},{"Input":22},{"Input":23}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":24},{"Input":25},{"Input":26},{"Input":27},{"Input":28},{"Input":29},{"Input":30},{"Input":31},{"Input":32},{"Input":33},{"Input":34}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":35},{"Input":36},{"Input":37},{"Input":38},{"Input":39},{"Input":40},{"Input":41},{"Input":42},{"Input":43},{"Input":44},{"Input":45}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":46},{"Input":47},{"Input":48},{"Input":49},{"Input":50},{"Input":51},{"Input":52},{"Input":53},{"Input":54},{"Input":55},{"Input":56}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":57},{"Input":58},{"Input":59},{"Input":60},{"Input":61},{"Input":62},{"Input":63},{"Input":64},{"Input":65},{"Input":66},{"Input":67}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":68},{"Input":69},{"Input":70},{"Input":71},{"Input":72},{"Input":73},{"Input":74},{"Input":75},{"Input":76},{"Input":77},{"Input":78}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":79},{"Input":80},{"Input":81},{"Input":82},{"Input":83},{"Input":84},{"Input":85},{"Input":86},{"Input":87},{"Input":88},{"Input":89}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":90},{"Input":91},{"Input":92},{"Input":93},{"Input":94},{"Input":95},{"Input":96},{"Input":97},{"Input":98},{"Input":99},{"Input":100}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":101},{"Input":102},{"Input":103},{"Input":104},{"Input":105},{"Input":106},{"Input":107},{"Input":108},{"Input":109},{"Input":110},{"Input":111}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":112},{"Input":113},{"Input":114},{"Input":115},{"Input":116},{"Input":117},{"Input":118},{"Input":119},{"Input":120},{"Input":121},{"Input":122}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":123},{"Input":124},{"Input":125},{"Input":126},{"Input":127},{"Input":128},{"Input":129},{"Input":130},{"Input":131},{"Input":132},{"Input":133}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":134},{"Input":135},{"Input":136},{"Input":137},{"Input":138},{"Input":139},{"Input":140},{"Input":141},{"Input":142},{"Input":143},{"Input":144}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":145},{"Input":146},{"Input":147},{"Input":148},{"Input":149},{"Input":150},{"Input":151},{"Input":152},{"Input":153},{"Input":154},{"Input":155}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":156},{"Input":157},{"Input":158},{"Input":159},{"Input":160},{"Input":161},{"Input":162},{"Input":163},{"Input":164},{"Input":165},{"Input":166}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":167},{"Input":168},{"Input":169},{"Input":170},{"Input":171},{"Input":172},{"Input":173},{"Input":174},{"Input":175},{"Input":176},{"Input":177}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":178},{"Input":179},{"Input":180},{"Input":181},{"Input":182},{"Input":183},{"Input":184},{"Input":185},{"Input":186},{"Input":187},{"Input":188}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":189},{"Input":190},{"Input":191},{"Input":192},{"Input":193},{"Input":194},{"Input":195},{"Input":196},{"Input":197},{"Input":198},{"Input":199}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":200},{"Input":201},{"Input":202},{"Input":203},{"Input":204},{"Input":205},{"Input":206},{"Input":207},{"Input":208},{"Input":209},{"Input":210}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":211},{"Input":212},{"Input":213},{"Input":214},{"Input":215},{"Input":216},{"Input":217},{"Input":218},{"Input":219},{"Input":220},{"Input":221}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":222},{"Input":223},{"Input":224},{"Input":225},{"Input":226},{"Input":227},{"Input":228},{"Input":229},{"Input":230},{"Input":231},{"Input":232}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":233},{"Input":234},{"Input":235},{"Input":236},{"Input":237},{"Input":238},{"Input":239},{"Input":240},{"Input":241},{"Input":242},{"Input":243}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":244},{"Input":245},{"Input":246},{"Input":247},{"Input":248},{"Input":249},{"Input":250},{"Input":251},{"Input":252},{"Input":253},{"Input":254}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":255},{"Input":256},{"Input":257},{"Input":258},{"Input":259},{"Input":260},{"Input":261},{"Input":262},{"Input":263},{"Input":264},{"Input":265}]}},{"MoveCall":{"package":"0x8378b3bd39931aa74a6aa3a820304c1109d327426e4275183ed0b797eb6660a8","module":"weather","function":"update","type_arguments":[],"arguments":[{"Input":0},{"Input":1},{"Input":266},{"Input":267},{"Input":268},{"Input":269},{"Input":270},{"Input":271},{"Input":272},{"Input":273},{"Input":274},{"Input":275},{"Input":276}]}}]}}};
+
+    // Paste a JSON here in development.
+    // const output = {};
+    
+    // NOTE: Add any JSON.parse() or similar as needed before using `jsonObject` in the scripts.
+    const jsonObject = output;
+
+    const clientEnvNetwork = 'CLIENT_ENV_NETWORK';
+
+    function ExplorerLink(props) {
+      function getUrl({ id, isAddress, module, digest}){
+        if (digest) {
+          return `https://suiexplorer.com/txblock/${digest}?network=${this.network}`;
+        }
+        if (module) {
+          return `https://suiexplorer.com/${isAddress ? 'address' : 'object'}/${id}?module=${module}&network=${this.network}`;
+        }
+
+        return `https://suiexplorer.com/${isAddress ? 'address' : 'object'}/${id}?network=${this.network}`;
+      }
+      return {
+        $template: '#explorer-link-template',
+        data: props.data,
+        text: props.text,
+        getUrl
+      }
+    }
+
+    function MoveCallArgument(props){
+      return {
+        $template: "#move-call-arg",
+        input: props.input
+      }
+    }
+
+    function ObjectList(props){
+      return {
+        $template: "#object-list",
+        input: props.input
+      }
+    }
+
+    createApp({
+        network: clientEnvNetwork,
+        activeTab: 2,
+        tabs: [
+            { id: 1, name: 'Transaction' },
+            { id: 2, name: 'Effects'},
+            { id: 3, name: 'Gas Analysis' },
+            { id: 4, name: 'Raw JSON'}
+        ],
+        json: jsonObject,
+        commands: jsonObject.transaction_info.ProgrammableTransaction.commands,
+        inputs: jsonObject.transaction_info.ProgrammableTransaction.inputs,
+        effects: jsonObject.effects,
+      ExplorerLink,
+      MoveCallArgument,
+      ObjectList,
+
+      formatListedObject(object) {
+          if ('ObjectOwner' in object.owner) {
+            return {
+              objectId: object.reference.objectId,
+              version: object.reference.version,
+              digest: object.reference.digest,
+              owner: object.owner.ObjectOwner,
+            }
+          }
+          //"owner":{"Shared":{"initial_shared_version":5963053}},"reference":{"objectId":"0x1aedcca0b67b891c64ca113fce87f89835236b4c77294ba7e2db534ad49a58dc","version":6991634,"digest":"JFCEJtA9pJBszxVtng8Sc2pd99u6kYoB4h24HbEXHgc"}}
+          if ('Shared' in object.owner) {
+            return {
+              objectId: object.reference.objectId,
+              version: object.reference.version,
+              digest: object.reference.digest,
+              owner: 'shared'
+            }
+          }
+
+      },
+
+      formatObject(object){
+        if (!object || typeof object !== 'object') return null;
+        if (!'Object' in object) return object;
+
+        const data = object.Object;
+
+        if('SharedObject' in data) {
+          return {
+            objectId: data.SharedObject.id,
+            mutable: data.SharedObject.mutable,
+            initialSharedVersion: data.SharedObject.initial_shared_version
+          }
+        }
+
+        if('ImmOrOwnedObject' in data) {
+          return {
+            objectId: data.ImmOrOwnedObject[0],
+            version: data.ImmOrOwnedObject[1]
+          }
+        }
+        
+        return data;
+      },
+
+      expandAll(){
+        document.getElementById('json-viewer').expandAll();
+      },
+      collapseAll(){
+        document.getElementById('json-viewer').collapseAll();
+      },
+
+      getInput(index){
+        return inputs()[index] || null;
+      }
+    }).mount();
+
+</script>
+<!-- v-scope value can be omitted -->
+<div v-scope class="container mx-auto py-3">
+
+  <div class="mb-6">
+    <h1 class="text-2xl font-bold">Transaction Details</h1>
+    <div>
+      <p>Execution status: {{effects.status.status === 'success' ? '✅ Successfully executed' : '❌ Failed to execute!'}}</p>
+      <p>Executed Epoch: {{ effects.executedEpoch }}</p>
+      <p>Gas Cost: {{ ( +effects.gasUsed.computationCost + +effects.gasUsed.storageCost - +effects.gasUsed.storageRebate) / 1_000_000_000  }} SUI</p>
+      <p>Transaction Digest: <span v-scope="ExplorerLink({ data: { digest: effects.transactionDigest }, text: effects.transactionDigest })"></span></p>
+    </div>
+  </div>
+  <div class="flex items-center bg-sky-50 mb-3 rounded-lg overflow-x-auto">
+    <div v-for="(tab, index) in tabs" 
+          :key="index" 
+          class="cursor-pointer flex px-2 py-3 "
+          :class="activeTab === tab.id ? 'bg-orange-50' : 'bg-sky-50'"
+        @click="activeTab = tab.id" >
+      <h2>{{ tab.name }}</h2>
+    </div>
+  </div>
+
+  <!-- Renders the PTBs -->
+  <div v-if="activeTab === 1">
+    <div v-for="(input, index) in commands" :key="index" class="border-gray-400 rounded-lg border mb-3 overflow-hidden text-xs">
+      <div class="bg-sky-50 px-3 py-2">
+        <p class="font-bold pb-2">
+          {{ index }}. {{Object.keys(input)[0]}}
+        </p>
+        <span v-if="input.MoveCall">
+          Package: <span v-scope="ExplorerLink({ data: { id: input.MoveCall.package }, text: input.MoveCall.package})"></span>
+          
+          <br>
+          Module: <span v-scope="ExplorerLink({ data: { id: input.MoveCall.package, module: input.MoveCall.module }, text: input.MoveCall.module})"></span>
+          <br>
+          Function: {{ input.MoveCall.function }}<br>
+        </span>
+      </div>
+      <!-- Move Call -->
+      <div v-if="!!input.MoveCall" class="px-3">
+        <div class="max-h-[250px] overflow-y-auto">
+          <div v-for="(arg, argIdx) in input.MoveCall.arguments" :key="index + '-' + argIdx" v-scope="MoveCallArgument({input: arg })"></div>
+        </div>
+      </div>
+      <div v-else-if="!!input.SplitCoins" class="px-3">
+        <div v-scope="MoveCallArgument({input: input.SplitCoins[0] })"></div>
+
+        <div class="flex gap-3 overflow-x-auto">
+          <div v-for="(arg, argIdx) in input.SplitCoins[1]" :key="index + '-' + argIdx" v-scope="MoveCallArgument({input: arg })"></div>
+        </div>
+      </div>
+      <div v-else-if="input.MakeMoveVec" class="px-3">
+        <div class="flex gap-3 overflow-x-auto">
+          <div v-for="(arg, argIdx) in input.MakeMoveVec[1]" :key="index + '-' + argIdx" v-scope="MoveCallArgument({input: arg })"></div>
+        </div>
+      </div>
+      <div v-else class="p-3">
+        {{ input }}
+      </div>
+    </div>
+  </div>
+
+  <div v-if="activeTab === 2">
+    <div v-if="effects.created" class="px-3">
+      <div class="">
+        <p>Created Objects</p>
+        <div v-scope="ObjectList({input: effects.created})"></div>
+      </div>
+    </div>
+
+    <div v-if="effects.mutated" class="px-3">
+      <div class="">
+        <p class="font-bold">Mutated Objects</p>
+        <div v-scope="ObjectList({input: effects.mutated})"></div>
+      </div>
+    </div>
+
+    <div v-if="effects.deleted" class="px-3">
+      <div class="">
+        <p class="font-bold">Deleted Objects</p>
+        <div v-scope="ObjectList({input: effects.deleted})"></div>
+      </div>
+    </div>
+
+    <div v-if="effects.wrapped" class="px-3">
+      <div class="">
+        <p class="font-bold">Wrapped Objects</p>
+        <div v-scope="ObjectList({input: effects.wrapped})"></div>
+      </div>
+    </div>
+
+    <div v-if="effects.unwrapped" class="px-3">
+      <div class="">
+        <p class="font-bold">Unwrapped Objects</p>
+        <div v-scope="ObjectList({input: effects.unwrapped})"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div v-if="activeTab === 3">
+    <div class="flex">
+      <button class="toggle-outline-btn" @click="expandAll">Expand all</button>
+      <button class="toggle-outline-btn" @click="collapseAll">Collapse all</button>
+    </div>
+    
+    <json-viewer class="px-6 py-3" id="json-viewer">
+        {{ JSON.stringify(json.gas_status.V2) }}
+    </json-viewer>
+  </div>
+  <div v-if="activeTab === 4">
+    <div class="flex">
+      <button class="toggle-outline-btn" @click="expandAll">Expand all</button>
+      <button class="toggle-outline-btn" @click="collapseAll">Collapse all</button>
+    </div>
+    <json-viewer class="px-6 py-3" id="json-viewer">
+        {{ JSON.stringify(json) }}
+    </json-viewer>
+  </div>
+</div>
+</body>
+
+<!-- Re-usable components of the system -->
+<!-- A template for `MoveCall` args or generally rendering `Inputs` -->
+<template id="move-call-arg">
+  <div class="my-2 flex-shrink-0 break-words max-h-[350px] overflow-auto py-1 p-3 border border-gray-400 rounded-lg text-xs">
+    <div v-if="typeof input === 'string'">
+      {{ input }}
+    </div>
+    <div v-else-if="inputs[input.Input]">
+      <p class="font-semibold mb-2">
+        Input {{input.Input}}
+      </p>
+      <div v-if="inputs[input.Input].Pure">
+        Pure: <br/> 
+        <p class="overflow-hidden text-ellipsis max-h-[100px]">
+          {{inputs[input.Input].Pure}}
+        </p>
+      </div>
+      <div v-else-if="formatObject(inputs[input.Input])">
+        <div v-for="[key, value] in Object.entries(formatObject(inputs[input.Input]))" >
+          <span class="font-semibold">
+            <div v-if="key === 'objectId'" v-scope="ExplorerLink({ key, data: { id: value }, text: value})"></div>
+            <span v-if="key !== 'objectId'">
+              <span class="capitalize">{{ key }}: </span>
+              {{ value }}
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div v-else>
+      {{ formatObject(inputs[input.Input]) || inputs[input.Input] || input }}
+    </div>
+  </div>
+</template>
+
+<template id="object-list">
+  <div class="max-h-[200px] overflow-y-auto">
+    <div v-for="(object) in input" class="border border-gray-900 rounded-lg mb-2 p-3 text-xs">
+      <div v-for="(value, key) in formatListedObject(object)">
+
+        <span class="font-semibold">
+          <div v-if="key === 'owner'"> {{key}}: </div>
+          <div v-if="key === 'objectId' || key === 'owner'" v-scope="ExplorerLink({ key, data: { id: value, isAddress: key === 'owner' }, text: value})"></div>
+          <span v-else>
+            <span class="capitalize">{{ key }}: </span>
+            {{ value }}
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!--Explorer Link Template-->
+<template id="explorer-link-template">
+  <a :href="getUrl(data)" class="underline " target="_blank">
+    {{ text }}
+  </a>
+</template>
+
+<script src="https://unpkg.com/@alenaksu/json-viewer@2.0.0/dist/json-viewer.bundle.js" defer></script>
+</html>
