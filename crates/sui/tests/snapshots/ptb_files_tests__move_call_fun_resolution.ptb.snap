@@ -3,27 +3,24 @@ source: crates/sui/tests/ptb_files_tests.rs
 expression: "results.join(\"\\n\")"
 ---
  === PREVIEW === 
-╭──────────────────────────────────────────────────╮
-│ PTB Preview                                      │
-├──────────────────────────────────────────────────┤
-│ command                                          │
-├──────────────────────────────────────────────────┤
-│ move-call zero_x_zero::option::is_none<u64> none │
-│ assign a none                                    │
-│ assign zero_x_zero @0x0                          │
-│ move-call zero_x_zero::option::is_none<u64> a    │
-│ move-call std::Option::is_none<u64> a            │
-│ move-call std::option::isnone<u64> a             │
-│ move-call std::option::is_none<u64>              │
-│ move-call std::option::is_none<u64> a b          │
-│ move-call sui::coin::destroy_zero @0x1           │
-│ move-call std::option::is_none<u64, bool> a      │
-╰──────────────────────────────────────────────────╯
- === PROGRAM META === 
-preview: false
-summary: false
-gas_object: none
-json: false
+╭─────────────────────────────────────────────────────╮
+│ PTB Preview                                         │
+├────────────┬────────────────────────────────────────┤
+│ command    │ values                                 │
+├────────────┼────────────────────────────────────────┤
+│ move-call  │ zero_x_zero::option::is_none<u64> none │
+│ assign     │ a none                                 │
+│ assign     │ zero_x_zero @0x0                       │
+│ move-call  │ zero_x_zero::option::is_none<u64> a    │
+│ move-call  │ std::Option::is_none<u64> a            │
+│ move-call  │ std::option::isnone<u64> a             │
+│ move-call  │ std::option::is_none<u64>              │
+│ move-call  │ std::option::is_none<u64> a b          │
+│ move-call  │ sui::coin::destroy_zero @0x1           │
+│ move-call  │ std::option::is_none<u64, bool> a      │
+├────────────┼────────────────────────────────────────┤
+│ gas-budget │ 1000                                   │
+╰────────────┴────────────────────────────────────────╯
  === BUILDING PTB ERRORS === 
   × Error when processing PTB
    ╭─[2:13]

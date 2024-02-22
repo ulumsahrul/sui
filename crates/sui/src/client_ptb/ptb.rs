@@ -26,7 +26,7 @@ use sui_types::{
     transaction::{ProgrammableTransaction, Transaction, TransactionData},
 };
 
-use super::{parser::ProgramParser, utils::to_source_string};
+use super::{ast::ProgramMetadata, parser::ProgramParser, utils::to_source_string};
 
 #[derive(Clone, Debug, Args)]
 #[clap(disable_help_flag = true)]
@@ -37,6 +37,7 @@ pub struct PTB {
 
 pub struct PTBPreview<'a> {
     pub program: &'a Program,
+    pub program_metadata: &'a ProgramMetadata,
 }
 
 #[derive(Serialize)]
@@ -73,7 +74,13 @@ impl PTB {
             };
 
         if program_metadata.preview_set {
-            println!("{}", PTBPreview { program: &program });
+            println!(
+                "{}",
+                PTBPreview {
+                    program: &program,
+                    program_metadata: &program_metadata
+                }
+            );
             return Ok(());
         }
 

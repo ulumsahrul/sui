@@ -50,18 +50,12 @@ async fn test_ptb_files(path: &Path) -> Result<(), Box<dyn std::error::Error>> {
     // Preview (This is based on the parsed commands).
     let mut results = vec![];
     results.push(" === PREVIEW === ".to_string());
-    results.push(format!("{}", PTBPreview { program: &program }));
-
-    results.push(" === PROGRAM META === ".to_string());
     results.push(format!(
-        "preview: {}\nsummary: {}\ngas_object: {}\njson: {}",
-        program_meta.preview_set,
-        program_meta.summary_set,
-        program_meta
-            .gas_object_id
-            .map(|x| x.value.to_string())
-            .unwrap_or("none".to_string()),
-        program_meta.json_set
+        "{}",
+        PTBPreview {
+            program: &program,
+            program_metadata: &program_meta
+        }
     ));
 
     // === BUILD PTB ===
