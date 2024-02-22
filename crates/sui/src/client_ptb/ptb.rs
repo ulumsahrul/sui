@@ -211,29 +211,26 @@ pub fn ptb_description() -> clap::Command {
     clap::Command::new("sui client ptb")
         .about(
             "Build, preview, and execute programmable transaction blocks. Depending on your \
-            shell you might have to use quotes around arrays or other passed values. \
-            Use --help to see examples for how to use the PTB core commands")
+            shell, you might have to use quotes around arrays or other passed values. \
+            Use --help to see examples for how to use the core functionality of this command.")
         .arg(arg!(
                 --"assign" <ASSIGN>
                 "Assign a value to a variable name to use later in the PTB."
         )
         .long_help(
-            "Assign a value to a variable name to use later in the PTB.\
+            "Assign a value to a variable name to use later in the PTB. \
             If only a name is supplied, the result of \
             the last transaction is binded to that name. If a name and value are \
-            supplied, then the name is binded to that value.\n\n\
-            Examples:\n --assign MYVAR 100\n --assign X [100,5000]\n --split-coins gas \
-            [1000, 5000, 75000]\
+            supplied, then the name is binded to that value. \
+            \n\nExamples: \
+            \n --assign MYVAR 100 \
+            \n --assign X [100,5000] \
+            \n --split-coins gas [1000, 5000, 75000] \
             \n --assign new_coins # bind new_coins to the result of previous transaction"
         )
         .value_names(["NAME", "VALUE"]))
-        .arg(
-            arg!(
-                --file <FILE>
-                "Path to a file containing transactions to include in this PTB."
-            ).value_hint(ValueHint::FilePath))
         .arg(arg!(
-            --gas <ID> ...
+            --gas-coin <ID> ...
             "The object ID of the gas coin to use."
         ))
         .arg(arg!(
@@ -269,7 +266,8 @@ pub fn ptb_description() -> clap::Command {
             "Make a move call to a function."
         )
         .long_help(
-            "Make a move call to a function.\n\nExamples:\
+            "Make a move call to a function.\
+            \n\nExamples:\
             \n --move-call 0x1::option::is_none <u64> none\
             \n --assign a none\
             \n --move-call 0x1::option::is_none <u64> a"
@@ -280,7 +278,8 @@ pub fn ptb_description() -> clap::Command {
             "Split the coin into N coins as per the given array of amounts."
         )
         .long_help(
-            "Split the coin into N coins as per the given array of amounts.\n\nExamples:\
+            "Split the coin into N coins as per the given array of amounts.\
+            \n\nExamples:\
             \n --split-coins gas [1000, 5000, 75000]\
             \n --assign new_coins # binds the result of split-coins command to variable new_coins\
             \n --split-coins @coin_object_id [100]"
@@ -291,7 +290,8 @@ pub fn ptb_description() -> clap::Command {
             "Transfer objects to the specified address."
         )
         .long_help(
-            "Transfer objects to the specified address.\n\nExamples:\
+            "Transfer objects to the specified address.\
+            \n\nExamples:\
             \n --transfer-objects @address [obj1, obj2, obj3]\
             \n --split-coins gas [1000, 5000, 75000]\
             \n --assign new_coins # bind new_coins to result of split-coins to use next\
@@ -306,11 +306,6 @@ pub fn ptb_description() -> clap::Command {
             --"upgrade" <MOVE_PACKAGE_PATH>
             "Upgrade the move package. It takes as input the folder where the package exists."
         ).value_hint(ValueHint::DirPath))
-        .arg(arg!(
-            --"pick-gas-budget" <PICK_GAS_BUDGET>
-            "Pick gas budget strategy if multiple gas-budgets are provided: \
-            max (take the highest gas budget found) or sum (adding all provided gas budgets)"
-        ))
         .arg(arg!(
             --"preview" 
             "Preview the list of PTB transactions instead of executing them."
