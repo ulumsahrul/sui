@@ -237,7 +237,7 @@ pub fn ptb_description() -> clap::Command {
         )
         .value_names(["NAME", "VALUE"]))
         .arg(arg!(
-            --gas-coin <ID> ...
+            --"gas-coin" <ID> ...
             "The object ID of the gas coin to use."
         ))
         .arg(arg!(
