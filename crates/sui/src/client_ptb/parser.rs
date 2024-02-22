@@ -346,8 +346,13 @@ impl<'a, I: Iterator<Item = &'a str>> ProgramParser<'a, I> {
     /// Parse a gas specifier.
     /// The expected format is: `--gas-coin <address>`
     fn parse_gas_specifier(&mut self) -> PTBResult<Spanned<ObjectID>> {
-        Ok(match self.parse_argument()? {
-            sp!(sp, Argument::Address(a)) => sp.wrap(ObjectID::from(a.into_inner())),
+        self.expect(Token::At).map_err(|e| {
+            err!(e.span => help: {
+                "Addresses or object IDs require the character '@' in front"
+            }, "Expected an address")
+        })?;
+        Ok(match self.parse_address()? {
+            sp!(sp, ParsedAddress::Numerical(a)) => sp.wrap(ObjectID::from(a.into_inner())),
             sp!(sp, _) => error!(sp, "Expected an address"),
         })
     }
