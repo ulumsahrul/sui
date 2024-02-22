@@ -7,35 +7,30 @@ The `client ptb` command allows users to specify the transactions to be executed
 
 ## Commands
 
-The following list itemizes all the available args for the `sui client ptb` command.
+The following list itemizes all the available args for the `sui client ptb` command. Use the `--help` for a long help version that includes some examples on how to use this command.
 
 ```
+Build, preview, and execute programmable transaction blocks. Depending on your shell, you might have to use quotes around arrays or other passed values. Use --help to see examples for how to use the core functionality of this command.
+
 Usage: sui client ptb [OPTIONS]
 
 Options:
-      --file <FILE>                             The path to the file containing the PTBs
-      --assign [<ASSIGN>...]                    An input for the PTB, defined as the variable name and value, e.g: --input recipient 0x321
-      --gas <GAS>                               The object ID of the gas coin
-      --gas-budget <GAS_BUDGET>                 The gas budget to be used to execute this PTB
-      --make-move-vec <MAKE_MOVE_VEC>...        Given n-values of the same type, it constructs a vector. For non objects or an empty vector, the type tag must be specified. For example,
-                                                --make-move-vec "<u64>" "[]"
-      --merge-coins <MERGE_COINS>...            Merge N coins into the provided coin: --merge-coins into_coin "[coin1,coin2,coin3]"
-      --move-call <MOVE_CALL>...                Make a move call to a function
-      --split-coins <SPLIT_COINS>...            Split the coin into N coins as per the given amount. On zsh, the vector needs to be given in quotes: --split-coins coin_to_split
-                                                "[amount1,amount2]"
-      --transfer-objects <TRANSFER_OBJECTS>...  Transfer objects to the address. E.g., --transfer-objects to_address "[obj1, obj2]"
-      --publish <PUBLISH>...                    Publish the move package. It takes as input the folder where the package exists
-      --upgrade <UPGRADE>...                    Upgrade the move package. It takes as input the folder where the package exists
-      --preview                                 Preview the PTB instead of executing it
-      --warn-shadows                            Enable shadown warning when including other PTB files. Off by default
-      --pick-gas-budget <PICK_GAS_BUDGET>       Pick gas budget strategy if multiple gas-budgets are provided [possible values: max, sum]
-      --summary                                 Show only a short summary (digest, execution status, gas cost). Do not use this flag when you need all the transaction data and 
-                                                execution effects
-      --json                                    Return command outputs in json format
-  -h, --help                                    Print help
-  -V, --version                                 Print version
+      --assign <NAME> <VALUE>                                         Assign a value to a variable name to use later in the PTB.
+      --gas-coin <ID>                                                 The object ID of the gas coin to use.
+      --gas-budget <MIST>                                             The gas budget for the transaction, in MIST.
+      --make-move-vec <TYPE> <[VALUES]>                               Given n-values of the same type, it constructs a vector. For non objects or an empty vector, the type tag must be specified.
+      --merge-coins <INTO_COIN> <[COIN OBJECTS]>                      Merge N coins into the provided coin.
+      --move-call <PACKAGE::MODULE::FUNCTION> <TYPE> <FUNCTION_ARGS>  Make a move call to a function.
+      --split-coins <COIN> <[AMMOUNT]>                                Split the coin into N coins as per the given array of amounts.
+      --transfer-objects <TO> <[OBJECTS]>                             Transfer objects to the specified address.
+      --publish <MOVE_PACKAGE_PATH>                                   Publish the move package. It takes as input the folder where the package exists.
+      --upgrade <MOVE_PACKAGE_PATH>                                   Upgrade the move package. It takes as input the folder where the package exists.
+      --preview                                                       Preview the list of PTB transactions instead of executing them.
+      --summary                                                       Show only a short summary (digest, execution status, gas cost). Do not use this flag when you need all the transaction data and the execution effects.
+      --warn-shadows                                                  Enable shadow warning when including other PTB files. Off by default.
+      --json                                                          Return command outputs in json format
+  -h, --help                                                          Print help (see more with '--help')
 ```
-
 
 ## Design philosophy and concepts
 
@@ -71,69 +66,28 @@ sui client ptb \
 ```
 
 :::tip
-`gas` is a reserved keyword and the tool will not allow you to name your variable gas.
+`gas` is a reserved word and the tool will not allow you to name your variable gas.
 :::
 
-### File
-To enable higher flexibility and reusability, PTBs can be written in a file and passed to the CLI using the `--file` argument, which accepts the path to a file. Let's take the previous example and assume it exists in the `split_coins.ptb` file:
-```bash
-# get a new coin with 1000 MIST
---split-coins gas [1000]
-# bind the result of split-coins to coins
---assign coins
-# transfer the new coin to @recipient_address
---transfer-objects @recipient_address [coins]
---gas-budget 50000000
-```
-
-This can be executed by running the following command:
-`sui client ptb --file split_coins.ptb`
-
-In addition to running files, one can mix commands from the CLI with passing in files. The order in which the files are passed is important, as the CLI will preserve the exact order in which commands are given. The following is a valid PTB and it will be executed:
-```bash
-sui client ptb \
---file split_coins.ptb \
---move-call 0x1::option::is_none <u64> 0
-```
-
-:::info
-Circular file inclusions (e.g., `split_coins.ptb` has a ``--file split_coins.ptb`) are not allowed and the tool will throw an error if this happens.
-:::
 :::tip
-If you include multiple PTBs from files and want to check the order of your transactions, use the `--preview` flag to display the PTB transaction list instead of executing it.
+If you build a complex PTB, use the `--preview` flag to display the PTB transaction list instead of executing it.
 :::
-
-### Pick Gas Budget
-The `--pick-gas-budget` flag is used when we need to disambiguate which gas budget to use, in case multiple budgets are provided. For example, let's assume that a user has multiple PTB files each providing the gas budget such that each PTB can be run individually. If the user now tries to build a large PTB by reusing these files, the CLI will not know which `gas-budget` to use, and will throw an error. For example, if in `split_coins.ptb` there is a `--gas-budget 5000000` and in `transfer.ptb` a `--gas-budget 1000000`, the error will be similar to this one:
- 
-```bash
-  × Error at command 0 in PTB file 'split_coins.ptb'
-   ╭────
- 1 │ gas_budget 5000000 
-   ·            ───┬───
-   ·               ╰── Multiple gas budgets set for transaction with no gas picker. Gas budget is set for the first time here.
-   ╰────
-  help: You should either remove all but one usage of setting the gas budget, or use the 'pick_gas_budget' command to handle multiple gas budgets
-
-  × Error at command 1 in PTB file 'transfer.ptb'
-   ╭────
- 1 │ gas_budget 1000000 
-   ·            ───┬───
-   ·               ╰── Gas budget is set for the 2nd time here.
-   ╰────
-```
-
 
 ## Examples
 
-The following examples demonstrate how to use the `client ptb` command. Most of these examples can be copied to a file and executed using `sui client ptb --file to_filepath`.
+The following examples demonstrate how to use the `client ptb` command.
 
 :::tip
 When a PTB is executed, the output contains all the relevant information (tx data, gas cost, effects, object changes, etc.). Use `--summary` to get a short summary when you do not need all the data. For complex PTBs, you can use `--preview` to display the PTB transaction list instead of executing it.
 :::
 
 ### Move call
+When needing to execute a move call, use the `--move-call` transaction to call a specific function from a package. The CLI PTB supports name resolution, so you can use both `0x1::option::is_none` as well as `std::option::is_none` for passing the function name. 
 
+```bash
+--assign A none
+--move-call std::option::is_none<u64> A
+```
 
 ### Split, destroy, and merge coins
 
@@ -169,10 +123,9 @@ This example creates three new coins from gas and transfers them to a different 
 ```
 
 :::info
-You can also pass an alias instead of an address.
+You can also pass an alias (without the '@') instead of an address.
 :::
 
 ## JSON output
 
 Append the `--json` flag to commands to format responses in JSON instead of the more human-friendly default Sui CLI output. This can be useful for extremely large datasets, for example, as those results can have a troublesome display on smaller screens. In these cases, the `--json` flag is useful.
-
